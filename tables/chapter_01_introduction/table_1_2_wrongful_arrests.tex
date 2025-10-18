@@ -1,0 +1,33 @@
+% Table 1.2: Documented Wrongful Arrests Due to Face Recognition
+% Location: Chapter 1 (Introduction), Section 1.1 (Motivation and Background)
+% Purpose: Summarize three documented cases of wrongful arrest due to false face recognition matches
+% LaTeX packages required: booktabs, tabularx
+
+\begin{table}[htbp]
+\centering
+\caption{Documented Wrongful Arrests Due to Face Recognition}
+\label{tab:wrongful_arrests}
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.18\textwidth}cp{0.15\textwidth}p{0.14\textwidth}X>{\raggedright\arraybackslash}p{0.12\textwidth}}
+\toprule
+\textbf{Individual} & \textbf{Year} & \textbf{Location} & \textbf{Alleged Crime} & \textbf{Details} & \textbf{Outcome} \\
+\midrule
+Robert Williams & 2020 & Detroit, MI & Shoplifting & Black man arrested Jan 9, 2020 and held for 30 hours after false facial recognition match to Oct 2018 surveillance footage. Driver's license photo incorrectly matched. & Charges dropped; case highlights lack of explainability in FR systems \cite{hill2020detroit} \\[8pt]
+
+Nijeer Parks & 2019 & Woodbridge, NJ & Shoplifting, assault & Spent 10 days in jail based on false facial recognition match. System matched his ID photo to surveillance footage despite Parks being in a different location at time of crime. & Charges dismissed; Parks filed civil rights lawsuit \cite{parks2019wrongful} \\[8pt]
+
+Porcha Woodruff & 2023 & Detroit, MI & Carjacking, robbery & Eight months pregnant woman arrested at home Feb 16, 2023 based on false facial recognition match. Held for 11 hours in custody while pregnant. & Charges dropped for insufficient evidence \cite{hill2023pregnant} \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+\small
+\item Note: All three cases involved Black individuals, highlighting documented racial bias in face recognition systems \cite{buolamwini2018gender,grother2019frvt}. In each case, the lack of explainable and validated attributions prevented timely detection of the algorithmic error \cite{nrc2009strengthening}.
+\end{tablenotes}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table documenting three wrongful arrest cases due to false face recognition matches.
+% Robert Williams (2020, Detroit): Arrested for shoplifting, held 30 hours, charges dropped.
+% Nijeer Parks (2019, New Jersey): Arrested for shoplifting/assault, held 10 days, charges dismissed.
+% Porcha Woodruff (2023, Detroit): Pregnant woman arrested for carjacking, held 11 hours, charges dropped.
+% All cases highlight the need for explainable and validated face recognition systems.

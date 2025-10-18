@@ -1,0 +1,39 @@
+% Table 4.2: Evaluation Metrics Definitions
+% Location: Chapter 4 (Methodology)
+% Purpose: Define all quantitative metrics used in experimental evaluation
+% LaTeX packages required: booktabs, tabularx, amsmath
+
+\begin{table}[htbp]
+\centering
+\caption{Evaluation Metrics Definitions}
+\label{tab:evaluation_metrics}
+\small
+\begin{tabularx}{\textwidth}{lXcp{0.20\textwidth}}
+\toprule
+\textbf{Metric} & \textbf{Mathematical Definition} & \textbf{Range} & \textbf{Interpretation} \\
+\midrule
+\textbf{LPIPS} (Learned Perceptual Image Patch Similarity) & $d_{\text{LPIPS}}(x, x') = \|\Phi(x) - \Phi(x')\|_2$ where $\Phi$ is pretrained VGG network features & $[0, \infty)$ & Perceptual distance; $<0.4$ is plausible, $<0.2$ is highly similar \\[6pt]
+
+\textbf{FID} (Fréchet Inception Distance) & $\text{FID} = \|\mu_r - \mu_g\|^2 + \text{Tr}(\Sigma_r + \Sigma_g - 2(\Sigma_r \Sigma_g)^{1/2})$ & $[0, \infty)$ & Distribution distance; lower is better, $<50$ is good quality \\[6pt]
+
+\textbf{Pearson $\rho$} (Correlation Coefficient) & $\rho = \frac{\text{Cov}(\Delta s_{\text{pred}}, \Delta s_{\text{actual}})}{\sigma_{\text{pred}} \sigma_{\text{actual}}}$ & $[-1, 1]$ & Linear correlation; $\rho > 0.70$ indicates strong prediction accuracy \\[6pt]
+
+\textbf{$p$-value} (Statistical Significance) & Probability of observing test statistic under null hypothesis $H_0: \rho = 0$ & $[0, 1]$ & Significance; $p < 0.05$ rejects null (significant correlation) \\[6pt]
+
+\textbf{Cohen's $d$} (Effect Size) & $d = \frac{\bar{d}_{\text{high}} - \bar{d}_{\text{low}}}{\sqrt{(s_{\text{high}}^2 + s_{\text{low}}^2)/2}}$ & $(-\infty, \infty)$ & Standardized difference; $|d| > 0.8$ is large effect \\[6pt]
+
+\textbf{SSIM} (Structural Similarity Index) & $\text{SSIM}(x, x') = \frac{(2\mu_x\mu_{x'} + c_1)(2\sigma_{xx'} + c_2)}{(\mu_x^2 + \mu_{x'}^2 + c_1)(\sigma_x^2 + \sigma_{x'}^2 + c_2)}$ & $[0, 1]$ & Structural similarity; $>0.90$ indicates high similarity \\[6pt]
+
+\textbf{PSNR} (Peak Signal-to-Noise Ratio) & $\text{PSNR} = 10 \log_{10}\left(\frac{\text{MAX}_I^2}{\text{MSE}}\right)$ & $[0, \infty)$ dB & Image quality; $>30$ dB is good quality \\[6pt]
+
+\textbf{MSE} (Mean Squared Error) & $\text{MSE}(x, x') = \frac{1}{n}\sum_{i=1}^{n}(x_i - x'_i)^2$ & $[0, \infty)$ & Pixel-wise error; lower is better \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table defining eight evaluation metrics used in the dissertation.
+% LPIPS and FID measure perceptual/distributional plausibility of counterfactuals.
+% Pearson correlation, p-value, and Cohen's d assess counterfactual prediction accuracy.
+% SSIM, PSNR, and MSE provide supplementary image quality measures.

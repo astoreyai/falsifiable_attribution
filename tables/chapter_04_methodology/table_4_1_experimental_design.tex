@@ -1,0 +1,59 @@
+% Table 4.1: Experimental Design Overview
+% Summarizes the 5 planned experiments from Chapter 4
+% Location: Chapter 4, Methodology
+% Alt-text: Experimental design table showing 5 experiments: (1) Sanity checks, (2) Ground truth validation,
+% (3) Counterfactual prediction, (4) Demographic bias, (5) Forensic cases. Each row includes objective,
+% datasets, methods tested, metrics, and expected outcome.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Experimental Design Overview: Five Experiments for Validating the Falsifiability Framework. Experiments 1-3 validate theoretical predictions, Experiment 4 tests demographic robustness, and Experiment 5 demonstrates forensic utility.}
+\label{tab:experimental_design}
+\begin{tabular}{clp{2.5cm}p{2.5cm}p{2.8cm}p{4.2cm}}
+\toprule
+\textbf{Exp ID} & \textbf{Objective} & \textbf{Datasets} & \textbf{Methods Tested} & \textbf{Metrics} & \textbf{Expected Outcome} \\
+\midrule
+1
+& Baseline sanity checks: verify methods respond to model parameters and data
+& LFW (1,000 pairs), CelebA (1,000 pairs)
+& Grad-CAM, SHAP, Integrated Gradients, LIME
+& Edge detector correlation, randomization test (Adebayo et al. 2018 protocol)
+& All methods pass basic validation (attributions change when model randomized) \\
+\midrule
+2
+& Ground truth validation: test on known facial attributes
+& CelebA with attribute labels (Glasses, Beard, Makeup, Young)
+& Grad-CAM, SHAP, Integrated Gradients, LIME
+& Attribution accuracy: top-k features overlap with ground truth attribute regions
+& Methods correctly identify 70\%+ of known attributes (e.g., Grad-CAM highlights glasses region when present) \\
+\midrule
+3
+& Counterfactual prediction: core falsifiability test
+& LFW (1,000 pairs), CelebA (1,000 pairs), CFP-FP (500 pairs for pose variation)
+& Grad-CAM, SHAP, Integrated Gradients, LIME
+& Correlation $\rho$ ($|\phi|$ vs. $\Delta$-score), p-value, separation $\bar{d}_{\text{high}} - \bar{d}_{\text{low}}$, LPIPS (perceptual quality), FID (distribution shift)
+& Grad-CAM passes ($\rho > 0.70$, $p < 0.05$), SHAP/LIME/IG partially pass or fail (lower $\rho$, higher p-value) \\
+\midrule
+4
+& Demographic bias analysis: test fairness across subpopulations
+& FairFace (stratified by race/gender/age)
+& Best method from Exp 3 (likely Grad-CAM)
+& Correlation $\rho$ by demographic group, failure rate by group
+& Identify failure modes (e.g., lower $\rho$ for certain demographics), inform deployment warnings \\
+\midrule
+5
+& Convergence validation: test Algorithm 3.1 theoretical guarantees
+& LFW (500 images), CelebA (500 images)
+& Algorithm 3.1 (counterfactual generator)
+& Convergence rate, mean iterations, success rate (98.4\% expected), final distance error
+& $>$95\% convergence within 100 iterations, validates Theorem 3.6 existence guarantee \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Usage notes:
+% - Include in chapter_04_methodology.tex with: \input{../tables/chapter_04_methodology/table_4_1_experimental_design}
+% - Requires: \usepackage{booktabs} in preamble
+% - Landscape orientation HIGHLY recommended: \usepackage{rotating} and \begin{sidewaystable}...\end{sidewaystable}
+% - Alternatively, use longtable for multi-page spanning: \usepackage{longtable}

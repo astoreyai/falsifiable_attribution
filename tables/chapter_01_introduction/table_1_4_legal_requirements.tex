@@ -1,0 +1,36 @@
+% Table 1.4: Regulatory and Legal Requirements for Face Recognition Systems
+% Location: Chapter 1 (Introduction), Section 1.1 (Motivation and Background)
+% Purpose: Detail regulatory frameworks requiring explainability and validation for face recognition
+% LaTeX packages required: booktabs, tabularx
+
+\begin{table}[htbp]
+\centering
+\caption{Regulatory and Legal Requirements for Face Recognition Explainability}
+\label{tab:legal_requirements}
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.20\textwidth}p{0.15\textwidth}X>{\raggedright\arraybackslash}p{0.22\textwidth}}
+\toprule
+\textbf{Regulation/Standard} & \textbf{Jurisdiction} & \textbf{Key Requirement} & \textbf{Implication for Face Recognition} \\
+\midrule
+EU Artificial Intelligence Act (Article 13) & European Union & Classifies biometric identification as ``high-risk'' application requiring ``transparent and comprehensible'' decision-making processes & Face recognition systems must provide meaningful explanations that humans can understand and validate \cite{euaiact2024} \\[8pt]
+
+GDPR Article 22 (Right to Explanation) & European Union & Grants individuals ``the right not to be subject to a decision based solely on automated processing''; implicitly requires meaningful explanations for algorithmic decisions & Individuals have right to understand and challenge face recognition decisions affecting them \cite{gdpr2016,wachter2017right} \\[8pt]
+
+Daubert Standard (Federal Rules of Evidence 702) & United States & Scientific testimony must be based on testable methods, peer-reviewed, with known error rates & Facial recognition evidence must be scientifically validated; explanations must be falsifiable and empirically testable \cite{daubert1993,fed702} \\[8pt]
+
+NRC Forensic Science Standards & United States & Forensic methods require scientific validation, reproducibility, and quantified uncertainty & Face recognition matches presented as evidence must include validated explanations and uncertainty estimates \cite{nrc2009strengthening} \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+\small
+\item Note: Current XAI methods cannot meet these standards because they lack falsifiability---there is no experimental protocol to definitively reject an incorrect explanation. This creates an untenable situation where life-altering decisions are made by systems whose reasoning cannot be scientifically validated or defended in court.
+\end{tablenotes}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table showing four regulatory/legal frameworks requiring explainability for face recognition:
+% 1. EU AI Act: Requires transparent, comprehensible decision-making for biometric systems.
+% 2. GDPR Article 22: Right to explanation for automated decisions.
+% 3. Daubert Standard: Scientific testimony must be testable with known error rates.
+% 4. NRC Standards: Forensic methods require validation and uncertainty quantification.
+% All frameworks demand falsifiable explanations that current XAI methods cannot provide.

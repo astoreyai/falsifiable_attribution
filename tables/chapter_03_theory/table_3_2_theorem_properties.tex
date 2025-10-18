@@ -1,0 +1,35 @@
+% Table 3.2: Theorem 3.5 Properties Summary
+% Location: Chapter 3 (Theoretical Foundations)
+% Purpose: Summarize key properties and guarantees of the falsifiability framework
+% LaTeX packages required: booktabs, tabularx
+
+\begin{table}[htbp]
+\centering
+\caption{Properties of Falsifiability Criterion (Theorem 3.5)}
+\label{tab:theorem_properties}
+\small
+\begin{tabularx}{\textwidth}{lXp{0.25\textwidth}}
+\toprule
+\textbf{Property} & \textbf{Description} & \textbf{Implication} \\
+\midrule
+\textbf{Uniqueness} & For a given attribution method and image pair, the falsifiability test produces a deterministic verdict (modulo sampling variance in counterfactual generation) & Reproducible evaluation: same inputs always yield same verdict (within statistical confidence) \\[8pt]
+
+\textbf{Method-Agnostic} & Framework applies to any attribution method producing importance scores $\phi \in \mathbb{R}^m$ (Grad-CAM, SHAP, LIME, IG, novel methods) & Universal evaluation protocol: no need for method-specific modifications \\[8pt]
+
+\textbf{Computationally Tractable} & Runtime scales linearly with number of counterfactuals $K$ and quadratically with image resolution (via gradient computation) & Practical deployment: 1000 images processable in $\sim$1.1 hours (RTX 3090) \\[8pt]
+
+\textbf{Statistical Rigor} & Verdicts include $p$-values from Mann-Whitney U tests, confidence intervals from bootstrap resampling, and effect sizes (Cohen's $d$) & Quantifiable uncertainty: verdicts are not binary but probabilistic with known error rates \\[8pt]
+
+\textbf{Embedding-Space Native} & Test operates directly on learned face embeddings $\phi \in \mathbb{R}^{512}$ using geodesic distances on hypersphere & Geometry-aware: respects ArcFace/CosFace angular margin structure \\[8pt]
+
+\textbf{Plausibility-Constrained} & Counterfactuals must satisfy perceptual plausibility: LPIPS $< 0.4$ and remain on face manifold & Realistic testing: avoids out-of-distribution artifacts from naive perturbations \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table listing six key properties of the falsifiability criterion (Theorem 3.5).
+% Properties ensure uniqueness, method-agnosticism, computational tractability,
+% statistical rigor, embedding-space awareness, and plausibility constraints.
+% These properties enable reproducible, universal, and realistic evaluation of attribution methods.

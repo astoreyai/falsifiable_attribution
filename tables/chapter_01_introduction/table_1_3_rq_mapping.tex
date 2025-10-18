@@ -1,0 +1,36 @@
+% Table 1.3: Research Questions Mapping to Contributions and Validation
+% Location: Chapter 1 (Introduction), Section 1.3 (Research Questions) - END OF SECTION
+% Purpose: Map each research question to methods, contributions, and validation chapters
+% LaTeX packages required: booktabs, tabularx
+
+\begin{table}[htbp]
+\centering
+\caption{Research Questions Mapping to Methodology, Contributions, and Validation}
+\label{tab:rq_mapping}
+\small
+\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}p{0.08\textwidth}X>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}}
+\toprule
+\textbf{RQ} & \textbf{Question Focus} & \textbf{Primary Contributions} & \textbf{Validation Approach} \\
+\midrule
+\textbf{RQ1} & Can attribution techniques satisfy formal falsifiability criteria through predictable counterfactual score changes? & \textbf{C1:} Falsifiable attribution framework\newline\textbf{C3:} Counterfactual score prediction system & Theoretical proofs (Chapter 3); mathematical formalization of testable predictions \\[10pt]
+
+\textbf{RQ2} & What are the theoretical and empirical limits of attribution faithfulness in face verification embedding spaces? & \textbf{C2:} Information-theoretic bounds on faithfulness\newline\textbf{C4:} Plausibility-preserving perturbations & Theoretical analysis (Chapter 3); empirical evaluation of bounds across datasets (Chapter 6) \\[10pt]
+
+\textbf{RQ3} & How do current methods (Grad-CAM, IG, SHAP) perform under rigorous falsifiability testing? & \textbf{C5:} Systematic evaluation of attribution methods\newline\textbf{C6:} Benchmark suite with ground truth & Experimental validation (Chapter 6); counterfactual prediction accuracy across 4 datasets and 2 architectures \\[10pt]
+
+\textbf{RQ4} & What constitutes 'sufficient faithfulness' for legal/forensic deployment of explainable face verification? & \textbf{C7:} Open-source evaluation framework\newline\textbf{C8:} Deployment guidelines for forensic contexts & Regulatory analysis (Chapters 7-8); documented case studies; deployment thresholds informed by EU AI Act, GDPR, Daubert standards \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+\small
+\item Note: The four research questions form a logical progression: RQ1 develops the falsifiability framework; RQ2 establishes realistic expectations for achievable faithfulness; RQ3 evaluates existing methods; RQ4 translates findings into practical deployment guidelines. Together, these questions address the gap between explainable AI capabilities and the requirements for responsible deployment in high-stakes forensic contexts.
+\end{tablenotes}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table mapping four research questions to their contributions and validation:
+% RQ1 (falsifiability criteria) → C1, C3 → validated through theoretical proofs
+% RQ2 (faithfulness limits) → C2, C4 → validated through theoretical analysis and experiments
+% RQ3 (method evaluation) → C5, C6 → validated through systematic experiments
+% RQ4 (deployment thresholds) → C7, C8 → validated through regulatory analysis
+% Questions form progression from theory to practice for responsible face recognition deployment.

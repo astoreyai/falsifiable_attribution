@@ -1,0 +1,46 @@
+% Table 6.1: Experiment 1 - Sanity Check Results
+% Location: Chapter 6 (Experimental Results)
+% Purpose: Report basic validation metrics for attribution methods
+% LaTeX packages required: booktabs, tabularx
+% NOTE: Contains PLACEHOLDER DATA - Replace with actual experimental results
+
+\begin{table}[htbp]
+\centering
+\caption{Experiment 1: Sanity Check Results Across Methods and Datasets}
+\label{tab:sanity_check_results}
+\small
+\begin{tabularx}{\textwidth}{lcccc}
+\toprule
+\textbf{Method} & \textbf{Dataset} & \textbf{Non-Triviality Rate (\%)} & \textbf{Avg Attribution Entropy} & \textbf{Random Label Test (Pass/Fail)} \\
+\midrule
+\multirow{3}{*}{\textbf{Grad-CAM}} & LFW & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CelebA & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CFP-FP & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\[4pt]
+
+\multirow{3}{*}{\textbf{SHAP}} & LFW & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CelebA & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CFP-FP & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\[4pt]
+
+\multirow{3}{*}{\textbf{Integrated Gradients}} & LFW & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CelebA & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CFP-FP & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\[4pt]
+
+\multirow{3}{*}{\textbf{LIME}} & LFW & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CelebA & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CFP-FP & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table showing sanity check results for four attribution methods (Grad-CAM, SHAP, IG, LIME)
+% across three datasets (LFW, CelebA, CFP-FP).
+% Metrics include non-triviality rate (percentage of images with both high/low attribution sets),
+% average attribution entropy (distribution spread), and random label test (Adebayo et al. 2018 criterion).
+% NOTE: Currently contains placeholder data - to be filled with experimental results.
+
+% INSTRUCTIONS FOR COMPLETION:
+% 1. Non-triviality rate: Percentage of images where both S_high and S_low are non-empty
+% 2. Avg Attribution Entropy: Mean entropy of attribution distribution (higher = more distributed)
+% 3. Random Label Test: Does method fail when labels are randomized? (Pass = method fails, Fail = method still works)

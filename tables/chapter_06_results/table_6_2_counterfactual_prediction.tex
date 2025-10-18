@@ -1,0 +1,56 @@
+% Table 6.2: Experiment 3 - Counterfactual Prediction Accuracy
+% Location: Chapter 6 (Experimental Results)
+% Purpose: Core results showing which attribution methods pass falsifiability testing
+% LaTeX packages required: booktabs, tabularx
+% NOTE: Contains PLACEHOLDER DATA - Replace with actual experimental results
+
+\begin{table}[htbp]
+\centering
+\caption{Experiment 3: Counterfactual Prediction Accuracy and Falsification Verdicts}
+\label{tab:counterfactual_prediction}
+\small
+\begin{tabularx}{\textwidth}{lcccccc}
+\toprule
+\textbf{Method} & \textbf{Dataset} & \textbf{Pearson $\rho$} & \textbf{$p$-value} & \textbf{Cohen's $d$} & \textbf{Pass Rate (\%)} & \textbf{Verdict} \\
+\midrule
+\multirow{3}{*}{\textbf{Grad-CAM}} & LFW & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CelebA & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CFP-FP & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\[4pt]
+
+\multirow{3}{*}{\textbf{SHAP}} & LFW & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CelebA & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CFP-FP & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\[4pt]
+
+\multirow{3}{*}{\textbf{Integrated Gradients}} & LFW & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CelebA & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CFP-FP & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\[4pt]
+
+\multirow{3}{*}{\textbf{LIME}} & LFW & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CelebA & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+& CFP-FP & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} & \textit{[TBD]} \\
+
+\midrule
+\multicolumn{7}{l}{\textbf{Falsifiability Thresholds:} $\rho > 0.70$, $p < 0.05$, $|d| > 0.80$} \\
+\multicolumn{7}{l}{\textbf{Verdicts:} NOT FALSIFIED (all criteria met) | FALSIFIED (one or more criteria failed)} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table showing core experimental results: counterfactual prediction accuracy for four attribution methods
+% across three datasets. Metrics include Pearson correlation (linear prediction accuracy),
+% p-value (statistical significance), Cohen's d (effect size), pass rate (percentage of images
+% meeting all criteria), and overall verdict (NOT FALSIFIED or FALSIFIED).
+% NOTE: Currently contains placeholder data - to be filled with experimental results.
+
+% INSTRUCTIONS FOR COMPLETION:
+% 1. Pearson ρ: Correlation between predicted and actual Δs (higher is better, threshold 0.70)
+% 2. p-value: Statistical significance of correlation (lower is better, threshold 0.05)
+% 3. Cohen's d: Effect size for S_high vs S_low distances (higher is better, threshold 0.80)
+% 4. Pass Rate: Percentage of test images where method passes all three conditions
+% 5. Verdict: NOT FALSIFIED if pass rate >80%, FALSIFIED otherwise
+
+% EXPECTED FINDINGS (from Chapter 1 research questions):
+% - Grad-CAM: Expected to pass (ρ > 0.70) on most datasets
+% - SHAP/LIME: Expected to show mixed results (moderate ρ ~ 0.5-0.65)
+% - IG: Expected to perform well on well-behaved datasets, struggle on pose-variant (CFP-FP)

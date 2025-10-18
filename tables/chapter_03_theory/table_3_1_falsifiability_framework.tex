@@ -1,0 +1,54 @@
+% Table 3.1: Falsifiability Framework Components
+% Breaks down the 5-step falsifiability framework from Theorem 3.5
+% Location: Chapter 3, Theoretical Foundation
+% Alt-text: Five-step framework table showing: Step 1 (Baseline Score), Step 2 (Attribution Generation),
+% Step 3 (Counterfactual Creation), Step 4 (Score Prediction), Step 5 (Statistical Test). Each step includes
+% mathematical definition, testable prediction, and falsification condition.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Falsifiability Framework Components: Five-Step Procedure for Testing Attribution Methods (Theorem 3.5). Each step produces a testable prediction that can be empirically verified or falsified.}
+\label{tab:falsifiability_framework}
+\begin{tabular}{clp{5.5cm}p{4.5cm}p{3.5cm}}
+\toprule
+\textbf{Step} & \textbf{Component} & \textbf{Mathematical Definition} & \textbf{Testable Prediction} & \textbf{Falsification Condition} \\
+\midrule
+1
+& Baseline Score
+& $s_0 = \text{CosSim}(\phi(x_1), \phi(x_2))$ where $\phi(x) = f(x)$ is the embedding
+& Baseline establishes reference similarity
+& Score $s_0 \not\in [-1, 1]$ (invalid cosine similarity) \\
+\midrule
+2
+& Attribution Generation
+& $A = \text{XAI}(x_1, x_2, s_0)$ produces importance scores $\phi_i$ for features $i$
+& High $|\phi_i|$ features are important, low $|\phi_i|$ features are unimportant
+& Uniform attribution: all $\phi_i \approx c$ (no differential prediction) \\
+\midrule
+3
+& Counterfactual Creation
+& $x_{cf} = C(x_1, S_{\text{high}})$ modifies high-attribution features $S_{\text{high}} = \{i : |\phi_i| > \theta_{\text{high}}\}$
+& Modifying important features changes embedding significantly
+& Counterfactual convergence fails: $|d_g - \delta_{\text{target}}| > 0.1$ radians \\
+\midrule
+4
+& Score Prediction
+& $\Delta s = \text{CosSim}(\phi(x_{cf}), \phi(x_2)) - s_0$ is the realized score change
+& $\bar{\Delta s}_{\text{high}} > \tau_{\text{high}}$ for high-attribution features, $\bar{\Delta s}_{\text{low}} < \tau_{\text{low}}$ for low-attribution
+& $|\bar{\Delta s}_{\text{high}} - \bar{\Delta s}_{\text{low}}| < \epsilon$ (no separation) \\
+\midrule
+5
+& Statistical Test
+& Correlation test: $\rho = \text{corr}(|\phi|, \bar{\Delta s})$ with p-value from t-test
+& $\rho > 0.70$ and $p < 0.05$: attribution predicts score changes
+& $\rho < 0.70$ OR $p > 0.05$: attribution falsified \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Usage notes:
+% - Include in chapter_03_theory.tex with: \input{../tables/chapter_03_theory/table_3_1_falsifiability_framework}
+% - Requires: \usepackage{booktabs} in preamble
+% - May span pages (use longtable package if needed): \usepackage{longtable}
+% - Landscape orientation recommended for readability: \usepackage{rotating} and \begin{sidewaystable}

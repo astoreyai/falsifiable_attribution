@@ -1,0 +1,212 @@
+%% ----------------------------------------------------------------
+%% main.tex -- MAIN FILE (the one that you compile with LaTeX)
+%% ----------------------------------------------------------------
+%
+% Falsifiable Attribution for Face Verification Systems
+% A Dissertation
+%
+%% ----------------------------------------------------------------
+
+% Set up the document
+\documentclass[a4paper, 11pt, oneside]{ThesisProposal}
+
+% Include any extra LaTeX packages required
+\usepackage[style=numeric,sorting=none,sortcites]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{lettrine}
+\usepackage{fix-cm}
+\usepackage{pdfpages}
+\usepackage{siunitx}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\RequirePackage{changepage}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,positioning, arrows.meta}
+
+% Smart Quotes
+\usepackage[english]{babel}
+\usepackage[autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+
+\usepackage{verbatim}
+\usepackage{vector}
+\hypersetup{urlcolor=black, colorlinks=true}
+
+\setlength{\headheight}{25.2842pt}
+
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{green}{rgb}{0,1,0}
+
+\usepackage{ulem}
+\normalem
+
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{dblfloatfix}
+
+\newcommand{\rulesep}{\unskip\ \vrule\ }
+
+% TODO TAGS:
+\newcommand{\todo}[1]{{\color{red} \MakeUppercase{#1}}}
+\newcommand{\note}[1]{{\color{blue} #1}}
+
+% Metadata from config.yaml
+\def\thesistitle{Falsifiable Attribution in Face Verification: A Counterfactual Framework for Validating Explanation Faithfulness}
+\def\thesissubtitle{Establishing Reproducible Evaluation Standards for Explainable Biometric Systems}
+\def\documenttypename{dissertation}
+\def\candidatename{Aaron W. Storey}
+\def\candidateemail{storeyaw@clarkson.edu}
+\def\degreename{Doctor of Philosophy}
+\def\degreesubject{Computer Science}
+\def\university{Clarkson University}
+\def\department{Department of Computer Science}
+\def\location{Potsdam, NY}
+\def\advisor{Dr. Masudul H. Imtiaz}
+\def\defensedate{August 1, 2026}
+
+%% ----------------------------------------------------------------
+\begin{document}
+\frontmatter      % Begin Roman style (i, ii, iii, iv...) page numbering
+
+% Set up the Title Page
+\title  {\thesistitle}
+\authors  {\texorpdfstring
+            {\href{mailto:\candidateemail}{\candidatename}}
+            {Author Name}
+            }
+\addresses  {\groupname\\\deptname\\\univname}
+\date       {\defensedate}
+\subject    {Computer Science}
+\keywords   {Explainable AI (XAI), Face Verification, Attribution Faithfulness, Counterfactual Validation, Biometric Systems, Falsifiability, Reproducible AI}
+
+\maketitle
+
+\setstretch{1.3}
+\fancyhead{}
+\rhead{\thepage}
+\lhead{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SIGNATURE PAGE (customize for your institution)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\pagestyle{empty}
+\noindent The committee below have examined the \documenttypename{} entitled "\textbf{\thesistitle{}}" presented by \textbf{\candidatename{}}, a student in the \degreename{} (\degreesubject{}) program, and have certified that it is worthy of acceptance.
+
+\vfill
+
+\rule{1.5in}{0.7pt}                         \hfill  \rule{3.5in}{0.7pt}\\
+\parbox{1.5in}{Date of Signature}           \hfill  Dr. Masudul H. Imtiaz\\
+\parbox{1.5in}{}                            \hfill  Research Advisor\\
+
+\vspace{2\baselineskip}
+\parbox{1.5in}{}           \hfill  \rule{3.5in}{0.7pt}\\
+\parbox{1.5in}{}           \hfill  Dr. Christopher Lynch\\
+\parbox{1.5in}{}           \hfill  Examining Committee\\
+
+\vspace{2\baselineskip}
+\parbox{1.5in}{}           \hfill  \rule{3.5in}{0.7pt}\\
+\parbox{1.5in}{}           \hfill  Dr. Alexis Maciel\\
+\parbox{1.5in}{}           \hfill  Examining Committee\\
+
+\vspace{2\baselineskip}
+\parbox{1.5in}{}           \hfill  \rule{3.5in}{0.7pt}\\
+\parbox{1.5in}{}           \hfill  Dr. Jeanna Matthews\\
+\parbox{1.5in}{}           \hfill  Examining Committee\\
+
+\vspace{2\baselineskip}
+\parbox{1.5in}{}           \hfill  \rule{3.5in}{0.7pt}\\
+\parbox{1.5in}{}           \hfill  Dr. Stephanie Schuckers\\
+\parbox{1.5in}{}           \hfill  Examining Committee\\
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% END SIGNATURE PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+
+% The Abstract Page
+\addtotoc{Abstract}
+\abstract{
+\addtocontents{toc}{\vspace{1em}}
+
+Face verification systems powered by deep neural networks have been increasingly deployed in high-stakes contexts, from law enforcement and border security to financial services and access control. Despite achieving remarkable accuracy on benchmark datasets, these systems suffer from documented demographic disparities and fundamental opacity in decision-making. Multiple wrongful arrests have occurred when facial recognition systems produced incorrect matches that law enforcement personnel could not meaningfully evaluate due to the lack of validated explanations. This accountability gap poses severe challenges for individual rights and civil liberties.
+
+This dissertation addresses the fundamental problem that current explainable AI (XAI) methods lack falsifiability: there exists no principled method to validate whether generated explanations are faithful to the model's decision-making process or merely plausible post-hoc rationalizations. Existing evaluation approaches rely on proxy metrics with known theoretical flaws, cannot distinguish between competing explanations, and fail to detect systematic misattribution of causality. Legal and forensic contexts demand stronger epistemic guarantees than current methods provide.
+
+This research develops a counterfactual falsifiability framework specifically designed for face verification systems operating in embedding spaces. The approach treats attribution faithfulness as a testable hypothesis: if an attribution method correctly identifies important features, then systematically perturbing those features in controlled ways should produce predictable changes in verification scores. The framework establishes formal falsifiability criteria, derives computational and geometric bounds on achievable faithfulness, and provides systematic evaluation protocols for existing attribution methods.
+
+Through rigorous empirical evaluation on benchmark datasets (VGGFace2-HQ, LFW, CFP-FP, AgeDB-30), this work reveals that no existing attribution method (Grad-CAM, SHAP, Integrated Gradients, LIME) consistently produces falsifiable explanations across all test conditions. Performance varies significantly by face pose, demographic group, and verification score range. The research identifies specific failure modes and establishes evidence-based deployment guidelines for forensic and legal contexts.
+
+The contributions include: (1) the first formal falsifiability framework for pairwise verification XAI, (2) computational and geometric bounds on attribution faithfulness in hypersphere embedding spaces, (3) plausibility-preserving perturbation strategies for face manifolds, (4) systematic evaluation revealing when and why current methods fail, (5) benchmark suite with ground truth test cases, (6) open-source evaluation framework for reproducible XAI assessment, and (7) deployment thresholds meeting regulatory requirements (EU AI Act, GDPR Article 22, Daubert standard for scientific evidence).
+
+This research advances explainable AI by establishing objective, falsifiable evaluation criteria that can distinguish faithful explanations from plausible confabulations---a prerequisite for the responsible deployment of face verification systems in contexts where incorrect decisions carry profound consequences for individual rights and freedoms.
+
+}
+
+\clearpage
+
+\pagestyle{fancy}
+
+%% ----------------------------------------------------------------
+\lhead{\emph{Contents}}
+\tableofcontents
+
+%% ----------------------------------------------------------------
+\lhead{\emph{List of Figures}}
+\listoffigures
+
+%% ----------------------------------------------------------------
+\lhead{\emph{List of Tables}}
+\listoftables
+
+%% ----------------------------------------------------------------
+\mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
+\pagestyle{fancy}
+\lhead{\fancyplain{}{\rightmark}}
+
+% Include the chapters of the thesis, as separate files
+\input{Chapters/Ch 1 - Introduction}
+
+% \input{Chapters/Ch 2 - Literature Review}  % To be created
+
+% \input{Chapters/Ch 3 - Theory}  % To be created
+
+% \input{Chapters/Ch 4 - Methodology}  % To be created
+
+% \input{Chapters/Ch 5 - Implementation}  % To be created
+
+% \input{Chapters/Ch 6 - Results}  % To be created
+
+% \input{Chapters/Ch 7 - Discussion}  % To be created
+
+% \input{Chapters/Ch 8 - Conclusion}  % To be created
+
+%% ----------------------------------------------------------------
+% Now begin the Appendices, including them as separate files
+
+\addtocontents{toc}{\vspace{2em}}
+
+\appendix
+
+% \input{Appendices/Appendix A}  % To be created
+
+\addtocontents{toc}{\vspace{2em}}
+
+%% ----------------------------------------------------------------
+\backmatter
+
+\label{Bibliography}
+\lhead{\emph{Bibliography}}
+\printbibliography
+
+\end{document}
+%% ----------------------------------------------------------------

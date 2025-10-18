@@ -1,0 +1,40 @@
+% Table 5.1: Software Components and Technologies
+% Location: Chapter 5 (Implementation)
+% Purpose: Document the software stack and key implementation components
+% LaTeX packages required: booktabs, tabularx
+
+\begin{table}[htbp]
+\centering
+\caption{Software Components and Technologies}
+\label{tab:software_components}
+\small
+\begin{tabularx}{\textwidth}{lXlp{0.18\textwidth}}
+\toprule
+\textbf{Component} & \textbf{Description} & \textbf{Technology} & \textbf{Version / Model} \\
+\midrule
+\textbf{Face Verification Model} & Pre-trained face recognition encoder producing 512-d L2-normalized embeddings & PyTorch + ArcFace/CosFace & ArcFace (ResNet-50), CosFace (ResNet-100) \\[6pt]
+
+\textbf{Attribution Methods} & Post-hoc explainability methods for generating importance scores & Captum library & Grad-CAM, SHAP (KernelSHAP), LIME, Integrated Gradients \\[6pt]
+
+\textbf{Counterfactual Generator} & Gradient-based perturbation on face manifold using Algorithm 3.1 & PyTorch (custom) & GPU-accelerated, batched optimization (T=100, $\alpha$=0.01) \\[6pt]
+
+\textbf{Plausibility Checker} & Perceptual similarity and distributional distance metrics & LPIPS (PyTorch), FID & LPIPS threshold $<0.4$, FID computed on batches \\[6pt]
+
+\textbf{Statistical Tests} & Correlation, significance testing, effect size computation & SciPy, NumPy & Pearson $\rho$, Mann-Whitney U, Cohen's $d$, bootstrap resampling \\[6pt]
+
+\textbf{Data Loaders} & Dataset loading and preprocessing for LFW, CelebA, CFP-FP, FairFace & PyTorch DataLoader, PIL & Batch size B=32, multi-threaded loading \\[6pt]
+
+\textbf{Visualization Tools} & Saliency map visualization, counterfactual comparisons, result plots & Matplotlib, Seaborn & Publication-quality plots (300 DPI), color-blind safe palettes \\[6pt]
+
+\textbf{Experiment Logging} & Metrics tracking, hyperparameter logging, reproducibility & Weights \& Biases, JSON logs & Run tracking, artifact versioning, seed control \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table listing eight software components of the implementation.
+% Face verification uses ArcFace/CosFace models with PyTorch.
+% Attribution methods implemented via Captum library.
+% Counterfactual generation uses custom PyTorch code with GPU acceleration.
+% Statistical tests via SciPy/NumPy, visualization via Matplotlib.

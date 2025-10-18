@@ -1,0 +1,40 @@
+% Table 8.1: Contributions Validation Summary
+% Location: Chapter 8 (Conclusion)
+% Purpose: Show how each contribution was validated and evidenced
+% LaTeX packages required: booktabs, tabularx
+
+\begin{table}[htbp]
+\centering
+\caption{Validation of Dissertation Contributions}
+\label{tab:contributions_validation}
+\small
+\begin{tabularx}{\textwidth}{clXp{0.23\textwidth}}
+\toprule
+\textbf{ID} & \textbf{Type} & \textbf{Contribution} & \textbf{Validation Evidence} \\
+\midrule
+\textbf{C1} & Theory & Falsifiable attribution framework for pairwise verification & Theorem 3.5 (formal proof), mathematical framework in Section 3.3, properties verified in Table 3.2 \\[6pt]
+
+\textbf{C2} & Theory & Information-theoretic bounds on attribution faithfulness & Theorem 3.7 (bounds derivation), geometric analysis in Section 3.5, empirical verification in Chapter 6 \\[6pt]
+
+\textbf{C3} & Method & Counterfactual score prediction system with uncertainty quantification & Algorithm 3.1 (pseudocode), implementation in Chapter 5, runtime benchmarks (4s/image RTX 3090) \\[6pt]
+
+\textbf{C4} & Method & Plausibility-preserving perturbation strategies & Algorithm 4.2 (perturbation protocol), LPIPS/FID validation in Section 6.2, visual examples in Figure 6.3 \\[6pt]
+
+\textbf{C5} & Evaluation & Systematic evaluation of 4 attribution methods across 4 datasets & Experimental results in Tables 6.1-6.2, statistical analysis in Section 6.4, comparative rankings in Figure 6.5 \\[6pt]
+
+\textbf{C6} & Evaluation & Benchmark suite with ground truth for face verification XAI & CelebA attribute validation in Section 6.3, controlled test cases documented in Section 4.4, public release on GitHub \\[6pt]
+
+\textbf{C7} & Applied & Open-source evaluation framework for reproducible assessment & Code repository (GitHub), documentation in Appendix B, 85\% test coverage, Docker containerization \\[6pt]
+
+\textbf{C8} & Applied & Deployment guidelines for forensic/legal contexts & Guidelines in Section 7.5, thresholds derived from EU AI Act/GDPR/Daubert analysis, case study mapping in Section 7.4 \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table showing validation evidence for each of eight dissertation contributions.
+% Theoretical contributions (C1-C2) validated via formal proofs and empirical testing.
+% Methodological contributions (C3-C4) validated via algorithms, implementations, and benchmarks.
+% Evaluation contributions (C5-C6) validated via systematic experiments and ground truth testing.
+% Applied contributions (C7-C8) validated via open-source releases and regulatory analysis.

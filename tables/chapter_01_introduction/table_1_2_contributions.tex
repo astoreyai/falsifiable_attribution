@@ -1,0 +1,39 @@
+% Table 1.2: Dissertation Contributions Summary
+% Location: Chapter 1 (Introduction)
+% Purpose: Summarize the eight main contributions categorized by type (Theory/Method/Evaluation/Applied)
+% LaTeX packages required: booktabs, tabularx
+
+\begin{table}[htbp]
+\centering
+\caption{Dissertation Contributions Summary}
+\label{tab:contributions}
+\small
+\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}p{0.08\textwidth}Xcp{0.15\textwidth}}
+\toprule
+\textbf{ID} & \textbf{Contribution Statement} & \textbf{Type} & \textbf{Chapter} \\
+\midrule
+\textbf{C1} & Falsifiable attribution framework for pairwise verification with formal mathematical criteria for counterfactual score prediction & Theory & Chapter 3 \\[6pt]
+
+\textbf{C2} & Information-theoretic bounds on attribution faithfulness in face verification embedding spaces & Theory & Chapter 3 \\[6pt]
+
+\textbf{C3} & Counterfactual score prediction system with calibrated uncertainty quantification using conformal prediction & Method & Chapters 3-4 \\[6pt]
+
+\textbf{C4} & Plausibility-preserving perturbation strategies for face manifolds using learned generative priors & Method & Chapter 4 \\[6pt]
+
+\textbf{C5} & Systematic evaluation measuring falsifiability of popular attribution methods (Grad-CAM, IG, SHAP, LIME) across 4 datasets and 2 architectures & Evaluation & Chapter 6 \\[6pt]
+
+\textbf{C6} & Benchmark suite with ground truth for face verification XAI, providing controlled test cases with known causal factors & Evaluation & Chapter 4 \\[6pt]
+
+\textbf{C7} & Open-source evaluation framework for reproducible XAI assessment with modular implementation of all validation protocols & Applied & Chapter 5 \\[6pt]
+
+\textbf{C8} & Deployment guidelines for forensic and legal contexts with quantitative thresholds and reporting requirements informed by EU AI Act, GDPR, and Daubert standards & Applied & Chapters 7-8 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table showing eight dissertation contributions (C1-C8) categorized by type.
+% Theoretical contributions (C1-C2): falsifiability framework and information-theoretic bounds.
+% Methodological contributions (C3-C4): counterfactual prediction system and perturbation strategies.
+% Evaluation contributions (C5-C6): systematic method evaluation and benchmark suite.
+% Applied contributions (C7-C8): open-source framework and deployment guidelines.

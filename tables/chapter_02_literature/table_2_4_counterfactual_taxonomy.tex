@@ -1,0 +1,33 @@
+% Table 2.4: Counterfactual XAI Methods Taxonomy
+% Location: Chapter 2 (Literature Review)
+% Purpose: Classify counterfactual explanation methods using Stepin et al. (2021) taxonomy
+% LaTeX packages required: booktabs, tabularx
+
+\begin{table}[htbp]
+\centering
+\caption{Counterfactual XAI Methods Taxonomy}
+\label{tab:counterfactual_taxonomy}
+\small
+\begin{tabularx}{\textwidth}{llXp{0.25\textwidth}}
+\toprule
+\textbf{Reasoning Type} & \textbf{Explanation Type} & \textbf{Description} & \textbf{Example Methods / Papers} \\
+\midrule
+\multirow{2}{*}{\textbf{Causal}} & Contrastive & Explanation compares actual outcome with alternative outcome based on causal intervention, answers "Why P rather than Q?" & Structural Causal Models (Pearl 2009), Causal Bayesian Networks \cite{pearl2009causality} \\[6pt]
+\cmidrule(lr){2-4}
+& Counterfactual & Explanation shows minimal intervention to change outcome, answers "What if X were different?" & Counterfactual Explanations without Opening the Black Box \cite{wachter2017counterfactual}, FACE \cite{poyiadzi2020face} \\[10pt]
+
+\midrule
+
+\multirow{2}{*}{\textbf{Non-Causal}} & Contrastive & Explanation highlights discriminative features between classes without causal semantics & Contrastive Explanations Method (CEM) \cite{dhurandhar2018cem}, Pertinent Positives/Negatives \\[6pt]
+\cmidrule(lr){2-4}
+& Counterfactual & Explanation generates plausible alternatives without causal guarantees & DiCE \cite{mothilal2020dice}, GAN-based counterfactuals, This Work (plausibility-preserving perturbations) \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% Alt-text (for accessibility):
+% Table showing 2×2 taxonomy of counterfactual/contrastive explanation methods.
+% Causal reasoning methods require causal models (Pearl's SCMs, Wachter's counterfactuals).
+% Non-causal methods use discriminative features or generative models without causal guarantees.
+% This work falls in non-causal counterfactual category (plausibility-preserving perturbations).

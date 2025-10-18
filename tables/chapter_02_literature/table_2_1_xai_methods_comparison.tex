@@ -1,0 +1,63 @@
+% Table 2.1: XAI Methods Comparison
+% Compares Grad-CAM, SHAP, LIME, Integrated Gradients, and LRP
+% Location: Chapter 2, Literature Review
+% Alt-text: Comparison table of five XAI methods (Grad-CAM, SHAP, LIME, Integrated Gradients, LRP)
+% showing their type, scope, computational complexity, advantages, limitations, and key papers
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Comparison of Post-Hoc Attribution Methods for Deep Neural Networks. This dissertation evaluates the first four methods (Grad-CAM, SHAP, LIME, Integrated Gradients) on face verification systems.}
+\label{tab:xai_methods_comparison}
+\begin{tabular}{lp{2cm}p{1.5cm}p{2.2cm}p{3.2cm}p{3.5cm}p{2cm}}
+\toprule
+\textbf{Method} & \textbf{Type} & \textbf{Scope} & \textbf{Computational Complexity} & \textbf{Advantages} & \textbf{Limitations} & \textbf{Key Papers} \\
+\midrule
+\textbf{Grad-CAM}
+& Gradient-based, CNN-specific
+& Layer-wise (7×7 spatial)
+& $O(1)$ per layer: 1 forward + 1 backward pass
+& Fast ($\sim$1s), intuitive visualizations, architecture-agnostic (any CNN)
+& Coarse resolution (7×7), CNN-only, final layer bias, no completeness axiom
+& Selvaraju et al. 2017 (ICCV) \\
+\midrule
+\textbf{SHAP}
+& Game-theoretic, model-agnostic
+& Local (per instance)
+& $O(2^n)$ exact, $O(K \cdot n)$ approx. (K=2000-10000 samples)
+& Theoretically grounded (Shapley uniqueness), model-agnostic, local accuracy guarantee
+& Exponential cost (5-10 min), feature independence assumption, baseline-dependent, unstable sampling
+& Lundberg \& Lee 2017 (NeurIPS), Shapley 1953 \\
+\midrule
+\textbf{LIME}
+& Local linear approximation, model-agnostic
+& Local (per instance)
+& $O(n \cdot k)$: n features, k=5000 perturbed samples
+& Model-agnostic, interpretable linear model, flexible
+& Unstable (sensitive to perturbations), local only, baseline-dependent, weak theoretical guarantees
+& Ribeiro et al. 2016 (KDD) \\
+\midrule
+\textbf{Integrated Gradients (IG)}
+& Axiomatic gradient-based
+& Local (per instance)
+& $O(m \cdot n)$: m=50-300 integration steps, n=gradient computation
+& Axiomatic (Sensitivity + Completeness), baseline-independent (modulo choice), pixel-level precision
+& Baseline selection critical, OOD path issues, m=50-300 forward passes ($\sim$10s), pairwise adaptation unclear
+& Sundararajan et al. 2017 (ICML) \\
+\midrule
+\textbf{LRP (Layer-wise Relevance Propagation)}
+& Backward-propagation, neural net-specific
+& Layer-wise (per layer)
+& $O(1)$ per layer: single backward pass
+& Conservation property (relevances sum to output), layer-wise interpretability
+& Architecture-specific (requires propagation rules per layer), no model-agnostic version, theoretical guarantees limited
+& Bach et al. 2015 (PLOS ONE) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Usage notes:
+% - Include in chapter_02_literature_review.tex with: \input{../tables/chapter_02_literature/table_2_1_xai_methods_comparison}
+% - Requires: \usepackage{booktabs} in preamble
+% - Landscape orientation recommended: \usepackage{rotating} and \begin{sidewaystable}...\end{sidewaystable}
+% - For longtable (page-spanning): \usepackage{longtable} and replace table/tabular with longtable

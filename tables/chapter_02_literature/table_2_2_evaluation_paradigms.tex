@@ -1,0 +1,48 @@
+% Table 2.2: Evaluation Paradigms Comparison
+% Compares plausibility, faithfulness, and falsifiability evaluation approaches
+% Location: Chapter 2, Literature Review
+% Alt-text: Comparison table showing three XAI evaluation paradigms (Plausibility, Faithfulness, Falsifiability)
+% across seven dimensions: evaluation approach, what is measured, testable predictions, ground truth required,
+% example metrics, Daubert standard compliance, and key papers
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Comparison of XAI Evaluation Paradigms: Plausibility, Faithfulness, and Falsifiability. This dissertation introduces the falsifiability paradigm (third row) as a novel contribution that addresses critical gaps in existing evaluation approaches.}
+\label{tab:evaluation_paradigms}
+\begin{tabular}{p{2.2cm}p{2.8cm}p{1.3cm}p{1.8cm}p{3cm}p{1.4cm}p{2.2cm}}
+\toprule
+\textbf{Evaluation Approach} & \textbf{Measures} & \textbf{Testable Prediction?} & \textbf{Ground Truth Required?} & \textbf{Example Metrics} & \textbf{Daubert Standard?} & \textbf{Key Papers} \\
+\midrule
+\textbf{Plausibility}
+& Subjective interpretability, alignment with human intuition
+& No
+& No
+& Human ratings (``looks reasonable''), attention visualization
+& Fails
+& Attention mechanisms, visualization studies \\
+\midrule
+\textbf{Faithfulness}
+& Correlation with model behavior under perturbation
+& No (correlation only)
+& Partial (perturbation effects)
+& Deletion AUC, insertion AUC, AOPC, infidelity
+& Partial
+& Adebayo et al. 2018, Kindermans et al. 2019, Tomsett et al. 2020 \\
+\midrule
+\textbf{Falsifiability} \newline \textit{(This work)}
+& Counterfactual predictions: high-attribution features cause large $\Delta$-score, low-attribution features cause small $\Delta$-score
+& Yes
+& Yes (realized $\Delta$-score from counterfactuals)
+& Correlation coefficient $\rho$, p-value, separation margin $\epsilon$
+& Passes
+& This dissertation (novel framework) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Usage notes:
+% - Include in chapter_02_literature_review.tex with: \input{../tables/chapter_02_literature/table_2_2_evaluation_paradigms}
+% - Or use full path: \input{tables/chapter_02_literature/table_2_2_evaluation_paradigms}
+% - Requires: \usepackage{booktabs} in preamble
+% - Landscape orientation not needed (fits on portrait page)

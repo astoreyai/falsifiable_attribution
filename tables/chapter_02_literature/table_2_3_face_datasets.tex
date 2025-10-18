@@ -1,0 +1,56 @@
+% Table 2.3: Face Recognition Datasets
+% Location: Chapter 2 (Literature Review)
+% Purpose: Comprehensive overview of major face recognition datasets with attributes and usage
+% LaTeX packages required: booktabs, longtable, rotating (for landscape)
+% Recommended: Use within sidewaystable or landscape environment
+
+\begin{longtable}{p{0.12\textwidth}p{0.15\textwidth}cp{0.18\textwidth}cp{0.17\textwidth}c}
+\caption{Face Recognition Datasets} \label{tab:face_datasets} \\
+\toprule
+\textbf{Dataset} & \textbf{Size (images / identities)} & \textbf{Year} & \textbf{Key Attributes} & \textbf{Public?} & \textbf{Common Use Cases} & \textbf{Used in This Work?} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\toprule
+\textbf{Dataset} & \textbf{Size (images / identities)} & \textbf{Year} & \textbf{Key Attributes} & \textbf{Public?} & \textbf{Common Use Cases} & \textbf{Used in This Work?} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+% --- DATASET ROWS ---
+
+\textbf{LFW} (Labeled Faces in the Wild) \cite{huang2007lfw} & 13,000 / 5,749 & 2007 & Unconstrained, in-the-wild faces, pose/illumination variation & Yes & Standard verification benchmark, baseline accuracy assessment & \textbf{Yes} (Exp 3: Counterfactual prediction) \\[6pt]
+
+\textbf{CelebA} (CelebFaces Attributes) \cite{liu2015celeba} & 202,599 / 10,177 & 2015 & 40 binary attributes (gender, age, glasses, makeup, etc.), bounding boxes, landmarks & Yes & Attribute prediction, facial feature analysis, ground truth validation & \textbf{Yes} (Exp 2: Ground truth validation) \\[6pt]
+
+\textbf{VGGFace2} \cite{cao2018vggface2} & 3.31M / 9,131 & 2018 & Large pose variation (±90°), age range, illumination changes, ethnicity diversity & Yes & Model pre-training, large-scale recognition, generalization testing & No (not used; ArcFace trained on MS-Celeb-1M) \\[6pt]
+
+\textbf{CFP-FP} (Celebrities in Frontal-Profile) \cite{sengupta2016cfp} & 7,000 / 500 & 2016 & Frontal-profile paired images (90° pose), protocol for pose-invariant evaluation & Yes & Pose robustness testing, profile matching & \textbf{Yes} (Exp 3: Pose variation testing) \\[6pt]
+
+\textbf{AgeDB-30} \cite{moschoglou2017agedb} & 16,488 / 568 & 2017 & Age variation (pairs with 30-year age gap), temporal aging effects & Yes & Age-invariant recognition, cross-age verification & No (referenced but not used in experiments) \\[6pt]
+
+\textbf{CASIA-WebFace} \cite{yi2014casia} & 494,414 / 10,575 & 2014 & Web-scraped celebrity faces, moderate quality, cleaned annotations & Yes & Training set for recognition models, medium-scale pre-training & No (ArcFace baseline trained on different dataset) \\[6pt]
+
+\textbf{MS-Celeb-1M} \cite{guo2016msceleb} & $\sim$10M / 100K & 2016 & Large-scale celebrity faces, originally from search engines (partially withdrawn due to privacy concerns) & Partial & Pre-training large models (ArcFace, CosFace), large-scale recognition & No (referenced as ArcFace training data, not directly used) \\[6pt]
+
+\textbf{IJB-C} (IARPA Janus Benchmark C) \cite{maze2018ijbc} & 31,334 videos + images / 3,531 & 2018 & Video frames, extreme pose/quality, unconstrained media & Yes & Unconstrained recognition, video-based verification, difficult scenarios & No (outside scope: video-based verification) \\[6pt]
+
+\textbf{MegaFace} \cite{kemelmacher2016megaface} & 4.7M / 672K & 2016 & Large distractor set, gallery+probe protocol for 1:N identification at scale & Yes & Large-scale identification evaluation, distractor robustness & No (focus on 1:1 verification, not 1:N identification) \\[6pt]
+
+\textbf{FairFace} \cite{karkkainen2021fairface} & 108,501 / — & 2021 & Balanced demographics (7 race groups, 2 genders, 9 age groups), annotated for fairness & Yes & Bias evaluation, demographic fairness analysis, equitable testing & \textbf{Yes} (Exp 4: Demographic bias analysis) \\
+
+\end{longtable}
+
+% Alt-text (for accessibility):
+% Table listing 10 major face recognition datasets with metadata.
+% Four datasets used in this work: LFW (standard benchmark), CelebA (ground truth attributes),
+% CFP-FP (pose variation), FairFace (demographic bias testing).
+% Six datasets referenced but not used: VGGFace2, AgeDB-30, CASIA-WebFace, MS-Celeb-1M, IJB-C, MegaFace.
+% Datasets range from 7,000 images (CFP-FP) to 10M (MS-Celeb-1M), published 2007-2021.
