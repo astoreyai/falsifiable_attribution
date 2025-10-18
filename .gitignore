@@ -1,0 +1,37 @@
+# LaTeX compilation artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.out
+*.run.xml
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.pdf
+
+# Temporary files
+*.tmp
+*.bak
+*~
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Python cache (if any future scripts)
+__pycache__/
+*.pyc
+*.pyo
+
+# Markdown analysis files (temporary)
+*_analysis.md
+*_report.md
+verification_report.md

@@ -296,7 +296,7 @@ If you use this work, please cite:
 ## Contact
 
 **Author**: Aaron Storey
-**Email**: aaron@astoreyai.com
+**Email**: storeyaw@clarkson.edu
 **GitHub**: https://github.com/astoreyai/falsifiable_attribution
 
 ---
